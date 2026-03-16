@@ -425,6 +425,39 @@ npm install -g finance-mcp
 
 > ⚠️ **Windows 用户注意**：如果上述配置不工作，请尝试将 `"command": "npx"` 改为 `"command": "npx.cmd"`
 
+##### 🧩 方式三：基于本地源码路径（适合已克隆本仓库到本机）
+
+> 适用于你已经在本地通过 `git clone` 获取源码，并在本地路径（例如 `E:\Development\FinanceMCP`）下完成依赖安装和构建的情况。
+>
+> 在使用此方式前，请先在项目根目录执行：
+> ```bash
+> npm install
+> npm run build
+> ```
+
+在 Claude 配置中直接指定本地 `build/index.js` 的绝对路径（以 Windows 示例为例）：
+
+```json
+{
+  "mcpServers": {
+    "finance-mcp-local": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "E:/Development/FinanceMCP/build/index.js"
+      ],
+      "env": {
+        "TUSHARE_TOKEN": "your_tushare_token_here"
+      }
+    }
+  }
+}
+```
+
+> 📌 **说明**：
+> - 请将 `"E:/Development/FinanceMCP/build/index.js"` 替换为你实际的本地仓库路径（保持 `/` 或在 JSON 中使用 `\\\\` 转义 `\`）。  
+> - 如果你后续将项目移动到其他目录，只需同步更新这一路径即可，无需重新安装 npm 包。
+
 **stdio 模式优势**：
 - ✅ 更快的响应速度（1-2ms 延迟）
 - ✅ 更低的资源占用
