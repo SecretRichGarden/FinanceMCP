@@ -23,7 +23,7 @@
     "start:sse": "npx supergateway --stdio \"node build/index.js\" --port 3100"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "0.6.0",
+    "@modelcontextprotocol/sdk": "^1.27.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.19.2"
