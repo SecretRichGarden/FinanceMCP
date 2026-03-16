@@ -3,7 +3,7 @@
 
 # Node/TypeScript
 node_modules/
-build/
+build-*/      # 自定义额外构建/脚本输出
 dist/
 *.tsbuildinfo
 npm-debug.log*
@@ -11,18 +11,29 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-
 # Logs
 logs/
 *.log
+
+# Coverage / reports
+coverage/
+*.lcov
 
 # OS/IDE
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
+
+# Cursor / Claude / AI 工具缓存
+.cursor/
+.claude/
+agent-transcripts/
+*.local.md
+
+# 临时文件
+*.swp
+*.swo
+~$*
+/node_modules
+package-lock.json
